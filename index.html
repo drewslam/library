@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
 <meta charset='UTF-8'>
-<title>Summer Reading List</title>
+<title>Library</title>
 <meta name='viewport' content='width=device-width,initial-scale=1'>
 <link rel='stylesheet' href='style.css'>
 
@@ -9,23 +9,33 @@
 
     <div class='form'>
         <label for='title'>Title</label>
-        <input type='text' class='title' name='title'>   
+        <input type='text' class='title' name='title'>
         <label for='author'>Author</label>
         <input type='text' class='author' name='author'>
         <label for='pages'>Pages</label>
         <input type='number' class='pages' name='pages'>
         <div class='checkbox'>
             <label for='read'>Read</label>
-            <input type='checkbox' class='read' name='read' />
+            <input type='checkbox' class='checkBox' name='read' />
         </div>
         <button type='submit' class='submit'>Submit</button>
     </div>
-    
-    <div class='paper'>
-        <div class='pattern'>
-            <div class='content'>
-                <h1 class='title'>Summer Reading List</h1>
-            </div>
+
+    <h1 class='title'>Classics of Literature</h1>
+
+    <div class='content'>
+        <!-- dummy books -->
+        <div class='book'>
+            <p>the Iliad</p>
+            <p>by Homer</p>
+            <p>297 pages</p>
+            <button class='unread'>Unread</button>
+        </div>
+        <div class='book'>
+            <p>White Noise</p>
+            <p>by Don DeLilo</p>
+            <p>326 pages</p>
+            <button class='read'>Read</button>
         </div>
     </div>
 

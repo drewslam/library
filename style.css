@@ -6,44 +6,40 @@
     flex-direction: column;
 }
 
-/* styling paper */
-.paper {
-    width: 600px;
-    height: 700px;
-    position: relative;
-    margin: 20px auto;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: white;
-    box-shadow: 0px 0px 5px 0px #888;
+h1 {
+    text-align: center;
 }
-  
-/* styling red vertical line */
-.paper::before {
-    content: '';
-    width: 2px;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 40px;
-    background-color: rgba(255,0,0,0.6);
-}
-  
-/* styling blue horizontal lines */
-.pattern {
-    height: 100%;
-    background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
-}
-  
-/* styling text content */
+
 .content {
-    padding-top: 6px;
-    padding-left: 56px;
-    padding-right: 16px;
-    line-height: 25px;
-    font-family: 'Dancing Script', cursive;
-    font-size: 19px;
-    letter-spacing: 1px;
-    word-spacing: 5px;
+    display: flex;
 }
-      
+
+.book {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: .15rem solid pink;
+    width: 200px;
+    height: 180px;
+    font-size: 1rem;
+}
+
+button {
+    height: 2rem;
+    width: 4rem;
+    padding: 1%;
+    border: none;
+}
+
+button.read {
+    background-color: purple;
+}
+
+button.unread {
+    background-color: green;
+}
+
+button:hover {
+    opacity: 75%;
+}
