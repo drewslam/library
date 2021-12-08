@@ -4,11 +4,15 @@ const author = document.querySelector('.author');
 const pages = document.querySelector('.pages');
 const checkBox = document.querySelector('.checkBox');
 const submit = document.querySelector('.submit');
+
+// initialize read/unread buttons
+const readUnread = document.querySelectorAll('.btn');
+
+// initialize page variable
 const content = document.querySelector('.content');
-const button = document.querySelectorAll('button');
 
 // initialize library variable
-let myLibrary = [];
+let myLibrary = [{ title: 'the Iliad', author: 'Homer', pages: 297, read: false }, { title: 'White Noise', author: 'Don DeLilo', pages: 326, read: true }];
 
 // Book constructor
 function Book(title, author, pages, read) {
@@ -16,13 +20,13 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
-    this.readStatus = function() {
+    /* this.readStatus = function() {
         if (read === true) {
             return 'Read';
         } else {
             return 'Unread';
         }
-    }
+    } */
 }
 
 // add book to array
@@ -49,16 +53,3 @@ function displayLibrary() {
 // submit button on form
 submit.addEventListener('click', addBookToLibrary)
 
-// read/unread button
-function toggleButton(btn) {
-    if (btn.classList === 'read') {
-        btn.classList = 'unread';
-    } else if (btn.classList === 'unread') {
-        btn.classList = 'read';
-    }
-}
-button.forEach(btn => {
-    if (btn.classList !== 'submit') {
-        btn.addEventListener('click', toggleButton)
-    }
-})
