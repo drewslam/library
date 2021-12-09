@@ -5,9 +5,6 @@ const pages = document.querySelector('.pages');
 const checkBox = document.querySelector('.checkBox');
 const submit = document.querySelector('.submit');
 
-// initialize read/unread buttons
-const readUnread = document.querySelectorAll('.btn');
-
 // initialize page variable
 const content = document.querySelector('.content');
 
@@ -18,7 +15,7 @@ let myLibrary = [{ title: 'the Iliad', author: 'Homer', pages: 297, read: false 
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
-    this.pages = pages;
+    this.pages = parseInt(pages);
     this.read = read;
     /* this.readStatus = function() {
         if (read === true) {
@@ -43,11 +40,51 @@ function addBookToLibrary() {
     checkBox.checked = false;
 }
 
-
 // display library on page
 function displayLibrary() {
-
+    myLibrary.forEach(book => {
+        const div = document.createElement('div');
+        const btn = document.createElement('button');
+        const p1 = document.createElement('p');
+        const p2 = document.createElement('p');
+        const p3 = document.createElement('p');
+        p1.textContent = book.title;
+        p2.textContent = `by ${book.author}`;
+        p3.textContent = `${book.pages} pages`;
+        content.appendChild(div).classList.add('book');
+        div.appendChild(p1);
+        div.appendChild(p2);
+        div.appendChild(p3);
+        div.appendChild(btn).classList.add('btn');
+        if (book.read === true) {
+            btn.classList.add('read');
+            btn.textContent = 'Read';
+        } else {
+            btn.classList.add('unread');
+            btn.textContent = 'Unread';
+        }
+    })
 }
+
+displayLibrary();
+
+// initialize read/unread buttons
+const readUnread = document.querySelectorAll('.btn');
+
+// read/unread button toggle
+readUnread.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (btn.classList.contains('unread')) {
+            btn.classList.remove('unread');
+            btn.classList.add('read');
+            btn.textContent = 'Read';
+        } else {
+            btn.classList.remove('read');
+            btn.classList.add('unread');
+            btn.textContent = 'Unread';
+        }
+    })
+})
 
 
 // submit button on form
