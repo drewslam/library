@@ -40,6 +40,10 @@ button.unread {
     background-color: green;
 }
 
+button.delete {
+    background-color: red;
+}
+
 button:hover {
     opacity: 75%;
 }
