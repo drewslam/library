@@ -97,20 +97,21 @@ function displayLibrary() {
 
         deleteBtn.addEventListener('click', () => {
             myLibrary.splice(book, 1);
+            contentLib.splice(book, 1)
             content.removeChild(div);
         })
 
-        // prevent duplicate listings
+        // prevent duplicate entries
         for (let i = 0; i < contentLib.length; i++) {
             let counter = 0;
             for (let j = 0; j < contentLib.length; j++) {
                 if (contentLib[i].getAttribute('data-number') === contentLib[j].getAttribute('data-number')) {
                     counter++
+                    if (counter > 1) {
+                        content.removeChild(contentLib[(j)]);
+                        contentLib.splice((j), 1);
+                    }
                 }
-            }
-            if (counter > 1) {
-                content.removeChild(contentLib[(i)]);
-                contentLib.splice((i), 1);
             }
         }
     })
